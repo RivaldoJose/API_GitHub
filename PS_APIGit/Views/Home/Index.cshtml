@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Sistema API GitHub</h1>
+    <p class="lead">Sistema ASP.NET que integra a API do GitHub.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Meus Repositórios</h2>
+        <p>
+            Acessar os repositórios do Usuário.
+        </p>
+        <p>@Html.ActionLink("Meus Repositórios »", "MeusRepositorios", "Home", new { area = "" }, new { @class = "btn btn-primary" })</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Favoritos</h2>
+        <p>Acessar repositórios marcados como Favorito.</p>
+        <p>@Html.ActionLink("Favoritos »", "ListarFavoritos", "Home", new { area = "" }, new { @class = "btn btn-success" })</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Buscar Repositórios</h2>
+        <p>Acessar seção de busca de repositórios.</p>
+        <p>@Html.ActionLink("Buscar Repositórios »", "BuscarRepositorio", "Home", new { area = "" }, new { @class = "btn btn-info" })</p>
+    </div>
+</div>

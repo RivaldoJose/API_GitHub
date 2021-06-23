@@ -1,0 +1,43 @@
+﻿@model IEnumerable<PS_APIGit.Models.Repositories>
+
+@{
+    ViewBag.Title = "Meus Repositorios";
+}
+
+<h2>Meus Repositorios</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.language)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.updated_at)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.name, "DetalhesRepo", new { id = item.id, name = item.name, lang = item.language, login = item.owner.login, updatedt = item.updated_at, desc = item.description }, null)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.language)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.updated_at)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+        </tr>
+    }
+
+</table>

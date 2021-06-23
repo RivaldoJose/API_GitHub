@@ -1,0 +1,42 @@
+﻿@model PS_APIGit.Models.Favorito
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Favorito</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdRepositorio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdRepositorio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeRepositorio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeRepositorio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdFavorito }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

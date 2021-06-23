@@ -1,0 +1,56 @@
+﻿@model PS_APIGit.Models.BuscaRepositorio
+
+@{
+    ViewBag.Title = "Buscar Repositorio";
+}
+
+
+<h2>Buscar Repositorio</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Nome do Repositorio: @Html.TextBox("SearchString")
+        <input type="submit" value="Pesquisar" />
+    </p>
+}
+<div>
+    <h4>Repositorios Encontrados</h4>
+    <hr />
+    <table class="table">
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                Idioma
+            </th>
+            <th>
+                ùltima Data Atualização
+            </th>
+            <th>
+                Descrição
+            </th>
+        </tr>
+
+        @foreach (var item in Model.items)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.name, "DetalhesRepo", new { id = item.id, name = item.name, lang = item.language, login = item.owner.login, updatedt = item.updated_at, desc = item.description }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.language)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.updated_at)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.description)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+

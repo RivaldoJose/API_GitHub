@@ -1,0 +1,45 @@
+﻿@model IEnumerable<PS_APIGit.Models.Favorito>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdRepositorio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeRepositorio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdRepositorio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeRepositorio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Username)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdFavorito }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdFavorito }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdFavorito })
+        </td>
+    </tr>
+}
+
+</table>

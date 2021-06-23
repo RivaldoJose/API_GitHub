@@ -1,0 +1,81 @@
+﻿@model PS_APIGit.Models.Repositories
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+<h2>Detalhes</h2>
+
+<hr>
+
+<div>
+    @Html.ActionLink("Favoritar", "Favoritar", "Favorito", new { NomeRepositorio = Model.name, Username = Model.owner.login }, new { @class = "btn btn-primary" })
+    <table id="tabelaDetalhes">
+        <caption>Detalhes do Repositório</caption>
+        <tr>
+            <td class="nome">
+                @Html.DisplayNameFor(model => model.name)
+            </td>
+            <td class="valor">
+                @Html.DisplayFor(model => model.name)
+            </td>
+        </tr>
+
+        <tr>
+            <td class="nome">
+                @Html.DisplayNameFor(model => model.description)
+            </td>
+            <td class="valor">
+                @Html.DisplayFor(model => model.description)
+            </td>
+        </tr>
+
+        <tr>
+            <td class="nome">
+                @Html.DisplayNameFor(model => model.language)
+            </td>
+            <td class="valor">
+                @Html.DisplayFor(model => model.language)
+            </td>
+        </tr>
+
+        <tr>
+            <td class="nome">
+                @Html.DisplayNameFor(model => model.updated_at)
+            </td>
+            <td class="valor">
+                @Html.DisplayFor(model => model.updated_at)
+            </td>
+        </tr>
+
+        <tr>
+            <td class="nome">
+                @Html.DisplayNameFor(model => model.owner.login)
+            </td>
+            <td class="valor">
+                @Html.DisplayFor(model => model.owner.login)
+            </td>
+        </tr>
+    </table>
+</div>
+@if (ViewBag.Contribuidores != null)
+{
+    <table class="table">
+        <tr>
+            <th>
+                Nome dos(as) Contribuídores(ras)
+            </th>
+        </tr>
+
+        @foreach (var item in ViewBag.Contribuidores)
+        {
+            <tr>
+                <td>
+                    @item.login
+                </td>
+            </tr>
+        }
+
+    </table>
+
+}

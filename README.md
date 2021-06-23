@@ -1,2 +1,2 @@
 # API_GitHub
-Esse sistema desenvolvido em C# .Net MVC implementa um CRUD de Hotéis
+Esse sistema desenvolvido em C# .Net MVC integra a API do GitHub
